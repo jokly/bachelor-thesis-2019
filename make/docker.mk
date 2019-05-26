@@ -7,5 +7,5 @@ LATEXMK = $(DOCKER_RUN) $(LATEX_IMAGE) latexmk
 build_latex_image:
 	docker build -t $(LATEX_IMAGE) .
 
-console:
-	$(DOCKER_RUN) -it /bin/bash
+docker_console:
+	$(DOCKER_RUN) -it $(LATEX_IMAGE) /bin/bash
