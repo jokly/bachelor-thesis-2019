@@ -12,6 +12,9 @@ LATEXMK ?= latexmk
 build:
 	@$(LATEXMK) -xelatex -synctex=1 -jobname=bachelor-thesis main.tex
 
+bump:
+	@./bump.sh
+
 clean:
 	@rm -rf *.aux \
 		*.fdb_latexmk \
