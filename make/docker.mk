@@ -1,6 +1,8 @@
 LATEX_IMAGE = latex:bachelor-thesis
 
-DOCKER_RUN = docker run --rm --init -v $(PWD):/src
+DOCKER_RUN = docker run --rm --init \
+	-v $(PWD):/src \
+	-v $(PWD)/fefu/source:/root/texmf/tex/latex/fefu
 
 LATEXMK = $(DOCKER_RUN) $(LATEX_IMAGE) latexmk
 

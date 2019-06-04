@@ -1,0 +1,3 @@
+[submodule "fefu"]
+	path = fefu
+	url = git@github.com:dvfu/bachelors-theses-2019.git
