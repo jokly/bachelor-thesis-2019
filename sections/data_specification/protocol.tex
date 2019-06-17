@@ -1,0 +1,37 @@
+\textbf{Описание параметров}
+\begin{itemize}
+  \item user\_id - ID пользователя
+  \item partner\_slug - идентификатор партнера (vl или dvhab)
+  \item tag\_id - ID тега
+  \item company\_id ID компании
+\end{itemize}
+
+\textbf{Рекомендация блюд}
+
+Рекомендация из всего списка:
+
+/api/items/all?user\_id=<user\_id>\&partner=<partner\_slug>
+
+Рекомендации по тегу:
+
+/api/items/by-tag/<tag\_id>?user\_id=<user\_id>\&partner=<partner\_slug>
+
+Рекомендации по компании:
+
+/api/items/by-company/<company\_id>?user\_id=<user\_id>\&partner=<partner\_slug>
+
+\textbf{Рекомендация компаний}
+
+Рекомендации из всего списка:
+
+/api/companies/all?user\_id=<user\_id>\&partner=<partner\_slug>
+
+Рекомендации по тегу:
+
+/api/companies/by-tag/<tag\_id>?user\_id=<user\_id>\&partner=<partner\_slug>
+
+\textbf{Рекомендация для тега}
+
+Рекомендация для тега "Рекомендуем":
+
+/api/companies/all?user\_id=<user\_id>\&partner=<partner\_slug>
