@@ -1,3 +1,5 @@
+## 1.0.2 (июня 18, 2019)
+  - Change FEFU submodule url to https
 ## 1.0.1 (июня 18, 2019)
   - Fix review
   - Configure title page
