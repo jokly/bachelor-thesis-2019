@@ -16,5 +16,5 @@ deploy:
   name: Build $(date +'%d.%m.%Y')
   skip-cleanup: true
   on:
-    repo: jokly/master-thesis
+    repo: jokly/bachelor-thesis-2019
     tags: true
