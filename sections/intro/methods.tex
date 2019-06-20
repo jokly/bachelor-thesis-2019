@@ -66,5 +66,31 @@ $T(u) \subset \mathcal{I}_u \cap \mathcal{I}_{test}$ за подмножеств
 \end{equation}
 
 \subsubsection{Модели классификации}
-
-
+В процессе обсуждения способов рекомендаций был предложен следующий метод: рекомендовать
+пользователю на основе уже добавленных блюд в корзину следующее. Для этого данные о заказах были
+представлены в формате, представленном в таблице \ref{table:1} (где $id_i$ - ID блюда).
+Значения в столбцах $id_i$ отражают факт присутствия блюда в корзине, а значение в
+столбце $Y$ - ID блюда, которое пользователь добавил следующим.
+\begin{table}[htb]
+  \centering
+  \begin{tabular} { | c | c | c | c | c | }
+  \hline
+  $id_1$ & $id_2$ & ... & $id_n$ & Y \\
+  \hline
+  True  & True  & ... & False & $id_x$ \\
+  ...  & ...  & ... & ... & ... \\
+  True  & False  & ... & True & $id_y$ \\
+  \hline
+  \end{tabular}
+  \caption{Датасет для классификации}
+  \label{table:1}
+\end{table}
+Для создания большого объема обучающей выборки $N$ случайно выбранных блюд в заказе
+поочередно отбрасывалось и становилось значением в столбце $Y$. Для решения поставленной
+задачи был выбраны следующие модели:
+\begin{itemize}
+  \item Bernoulli Naive Bayes \cite{BernoulliNB}
+  \item Random Forest \cite{RandomForest}
+  \item Stochastic Gradient Descent \cite{SGD}
+  \item XGBoosting \cite{XGBoosting}
+\end{itemize}
