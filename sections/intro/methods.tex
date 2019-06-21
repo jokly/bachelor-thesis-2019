@@ -20,7 +20,7 @@ $\mathcal{S}=\{like, dislike\}$).Предполагается, что польз
 используем $\mathcal{I}_{uv}$. Таким же образом $\mathcal{U}_{ij}$ используется,
 чтобы определить множество пользователей, которые оценили оба товара $i$ и $j$.
 
-Перед рекомендательными системами ставится много задач, такими из них являются:
+Перед рекомендательными системами ставится много задач, одними из них являются:
 нахождение лучшего товара и нахождение списка наилучших товаров для пользователя.
 Первая проблема заключается в нахождении нового элемента $i \in \mathcal{I} \setminus \mathcal{I}_u$,
 который был бы самым интересным для пользователя $u$. Когда известны явные оценки
@@ -64,6 +64,55 @@ $T(u) \subset \mathcal{I}_u \cap \mathcal{I}_{test}$ за подмножеств
   \label{cf_recall}
   Recall(L) = \frac{1}{|\mathcal{U}|} \sum_{u \in \mathcal{U}} |L(u) \cap T(u)| / |T(u)|
 \end{equation}
+
+\textbf{Item-based}
+
+Коллаборативная фильтрация разделяется на два основных подхода: user-based и item-based.
+В этом параграфе мы рассмотрим второй из них. Для этого положим, что для каждого
+товара $i \neq j$ значение $w_{ij}$ отражает их сходство.
+Обозначим за $\mathcal{N}_u(i)$ - множество товаров наиболее похожих на $i$, которые
+оценил пользователь $u$. Таким образом, мы можем рассчитать прогнозируемый рейтинг:
+\begin{equation}
+  \hat{r}_{ui} = \frac{\sum_{j \in \mathcal{N}_u(i)} w_{ij}r_{uj}}{\sum_{j \in \mathcal{N}_u(i)} |w_{ij}|}
+\end{equation}
+
+Для расчета значений $w_{ij}$ существуют такие меры сходства, как:
+\begin{enumerate}
+  \item Коэффициент Жаккара
+  \begin{equation}
+    \label{mesure_js}
+    JS(i,j) = \frac{|U_i \cap U_j|}{|U_i \cup U_j|}
+  \end{equation}
+  \item Косинусное сходство
+  \begin{equation}
+    \label{mesure_cs}
+    CS(i,j) = \frac{\sum_{u \in U_{ij}} r_{ui}r_{uj}}{\sqrt{\sum_{u \in U_{ij}} r_{ui}^2}\sqrt{\sum_{u \in U_{ij}} r_{uj}^2}}
+  \end{equation}
+  \item Коэффициент корреляции Пирсона
+  \begin{equation}
+    \label{mesure_ps}
+    PS(i,j) = \frac
+      {\sum_{u \in U_{ij}} (r_{ui} - \hat{r}_i)(r_{uj} - \hat{r}_j)}
+      {\sqrt{\sum_{u \in U_{ij}} (r_{ui} - \hat{r}_i)^2}\sqrt{\sum_{u \in U_{ij}} (r_{uj} - \hat{r}_j)^2}}
+  \end{equation}
+\end{enumerate}
+Также, в зависимости от выбранной меры, применяются различные способы вычисления
+предсказания предмета:
+\begin{enumerate}
+  \item В случае, когда оценки не представлены
+  \begin{equation}
+    \hat{r}_{uj} = \frac{\sum_{i \in I_u} w_{ij}}{|I_u|}
+  \end{equation}
+  \item Для коэффициента Жаккара (\ref{mesure_js}) и косинусового сходства (\ref{mesure_cs})
+  \begin{equation}
+    \hat{r}_{uj} = \frac{\sum_{i \in I_u} w_{ij} r_{ui} }{\sum_{i \in I_u} w_{ij}}
+  \end{equation}
+  \item Для коэффициента корреляции Пирсона
+  \begin{equation}
+    \hat{r}_{uj} = \bar{r}_j + \frac{\sum_{i \in I_u} w_{ij} (r_{ui} - \bar{r}_i) }{\sum_{i \in I_u} w_{ij}}
+  \end{equation}
+
+\end{enumerate}
 
 \subsubsection{Модели классификации}
 В процессе обсуждения способов рекомендаций был предложен следующий метод: рекомендовать
