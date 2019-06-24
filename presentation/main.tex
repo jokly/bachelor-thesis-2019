@@ -68,17 +68,19 @@
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
      		\begin{enumerate}
-          \item Оценка - 0 или 1
+          \item Коэффициент Жаккара
           \begin{align*}
-            \hat{r}_{uj} = \frac{\sum_{i \in I_u} SIM(i,j)}{|I_u|}
+            JS(i,j) = \frac{|U_i \cap U_j|}{|U_i \cup U_j|}
           \end{align*}
-          \item Предсказание оценки
+          \item Косинусное сходство
           \begin{align*}
-            \hat{r}_{uj} = \frac{\sum_{i \in I_u} SIM(i,j) r_{ui} }{\sum_{i \in I_u} SIM(i,j)}
+            CS(i,j) = \frac{\sum_{u \in U_{ij}} r_{ui}r_{uj}}{\sqrt{\sum_{u \in U_{ij}} r_{ui}^2}\sqrt{\sum_{u \in U_{ij}} r_{uj}^2}}
           \end{align*}
-          \item Предсказание оценки с нормализацией
+          \item Коэффициент корреляции Пирсона
           \begin{align*}
-            \hat{r}_{uj} = \bar{r}_j + \frac{\sum_{i \in I_u} SIM(i,j) (r_{ui} - \bar{r}_i) }{\sum_{i \in I_u} SIM(i,j)}
+            PS(i,j) = \frac
+              {\sum_{u \in U_{ij}} (r_{ui} - \hat{r}_i)(r_{uj} - \hat{r}_j)}
+              {\sqrt{\sum_{u \in U_{ij}} (r_{ui} - \hat{r}_i)^2}\sqrt{\sum_{u \in U_{ij}} (r_{uj} - \hat{r}_j)^2}}
           \end{align*}
         \end{enumerate}
     	\end{column}
@@ -92,21 +94,19 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Функции схожести}
+  \frametitle{Вычисление предсказаний}
   \begin{enumerate}
     \item Коэффициент Жаккара
     \begin{align*}
-      JS(i,j) = \frac{|U_i \cap U_j|}{|U_i \cup U_j|}
+      \hat{r}_{uj} = \frac{\sum_{i \in I_u} SIM(i,j)}{|I_u|}
     \end{align*}
     \item Косинусное сходство
     \begin{align*}
-      CS(i,j) = \frac{\sum_{u \in U_{ij}} r_{ui}r_{uj}}{\sqrt{\sum_{u \in U_{ij}} r_{ui}^2}\sqrt{\sum_{u \in U_{ij}} r_{uj}^2}}
+      \hat{r}_{uj} = \frac{\sum_{i \in I_u} SIM(i,j) r_{ui} }{\sum_{i \in I_u} SIM(i,j)}
     \end{align*}
     \item Коэффициент корреляции Пирсона
     \begin{align*}
-      PS(i,j) = \frac
-        {\sum_{u \in U_{ij}} (r_{ui} - \hat{r}_i)(r_{uj} - \hat{r}_j)}
-        {\sqrt{\sum_{u \in U_{ij}} (r_{ui} - \hat{r}_i)^2}\sqrt{\sum_{u \in U_{ij}} (r_{uj} - \hat{r}_j)^2}}
+      \hat{r}_{uj} = \bar{r}_j + \frac{\sum_{i \in I_u} SIM(i,j) (r_{ui} - \bar{r}_i) }{\sum_{i \in I_u} SIM(i,j)}
     \end{align*}
   \end{enumerate}
 \end{frame}
