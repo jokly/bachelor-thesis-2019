@@ -1,3 +1,5 @@
+.PHONY: build presentation bump
+
 -include local.mk
 
 PWD = $(shell pwd)
@@ -12,6 +14,9 @@ LATEXMK ?= latexmk
 build:
 	@$(LATEXMK) -xelatex -synctex=1 -jobname=bachelor-thesis main.tex
 
+presentation:
+	@$(LATEXMK) -xelatex -synctex=1 -jobname=presentation presentation/main.tex
+
 bump:
 	@./bump.sh
 
@@ -24,7 +29,11 @@ clean:
 		*.log \
 		*.out \
 		*.synctex.gz \
-		*.toc
+		*.toc \
+		*.bbl \
+		*.blg \
+		*.nav \
+		*.snm
 
 prune: clean
 	@rm -rf *.pdf

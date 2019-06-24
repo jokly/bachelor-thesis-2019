@@ -23,3 +23,6 @@ RUN apt update && apt install -y \
 RUN apt install -y --reinstall ttf-mscorefonts-installer && \
     wget -O /usr/share/fonts/xits-math.otf https://github.com/khaledhosny/xits-math/raw/master/XITSMath-Regular.otf && \
     fc-cache -f -v
+
+COPY fonts /root/.fonts
+RUN fc-cache -f -v
