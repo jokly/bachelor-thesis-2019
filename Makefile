@@ -17,6 +17,9 @@ build:
 presentation:
 	@$(LATEXMK) -xelatex -synctex=1 -jobname=presentation presentation/main.tex
 
+text:
+	@$(LATEXMK) -xelatex -synctex=1 -jobname=text presentation/text.tex
+
 bump:
 	@./bump.sh
 
