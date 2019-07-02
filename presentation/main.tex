@@ -16,6 +16,8 @@
 % packages
 \usepackage{caption}
 
+\setbeamertemplate{footline}[frame number]
+
 % set info
 \title{Рекомендательная система для VLru Еда}
 \author{
@@ -114,7 +116,7 @@
 \begin{frame}
   \frametitle{Подходы в рекомендациях}
   \begin{enumerate}
-    \item Пометка о покупке (0 или 1)
+    \item Факт покупки: купил или не купил
     \item Предсказывать количество заказанного товара
     \item Предсказывать значение сигмоиды, где аргумент $x$ --- количество заказов
     \begin{align*}
@@ -134,7 +136,7 @@
   \begin{itemize}
     \item $\mathcal{U}$ - множество пользователей
     \item $L(u)$ - список рекомендаций для пользователя $u$
-    \item $T(u)$ - заказанные пользователем блюда из тестовой выборки
+    \item $T(u)$ - список блюд из тестовой выборки
   \end{itemize}
 \end{frame}
 
@@ -152,7 +154,7 @@
       \hline
       Сигмоида & - & 0.0313 & $2.17 * 10^{-5}$ \\
       \hline
-      Пометка о покупке & 0.0339 & 0.0312 & - \\
+      Факт покупки & 0.0339 & 0.0312 & - \\
       \hline
     \end{tabular}
     \caption{Precision}
@@ -185,11 +187,11 @@
     \hline
     $id_1$ & $id_2$ & ... & $id_n$ & Y \\
     \hline
-    True  & True  & ... & False & $id_x$ \\
+    True  & True  & ... & False & $id_i$ \\
     \hline
     ...  & ...  & ... & ... & ... \\
     \hline
-    True  & False  & ... & True & $id_y$ \\
+    True  & False  & ... & True & $id_j$ \\
     \hline
     \end{tabular}
     \caption{Датасет для классификации}
@@ -217,7 +219,7 @@
 \begin{frame}
   \frametitle{Разработанное решение}
   \begin{enumerate}
-    \item Выбрана модель с пометкой о покупке (0 или 1)
+    \item Выбрана модель с фактом о покупке
     \item Выбрана мера Жаккара
     \item Новым пользователям рекомендуем популярные блюда
     \item Возможность рекомендовать компании или блюда
@@ -239,15 +241,35 @@
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.23]{images/tag_page.png}
-    \caption{Процесс развертывания}
+    \caption{Страница рекомендаций}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Реализация}
+  \begin{itemize}
+    \item Сайт "VLru Еда"
+      \begin{itemize}
+        \item Добавлено: 541 строк
+        \item Удалено: 239 строк
+      \end{itemize}
+    \item Jupyter Notebook
+      \begin{itemize}
+        \item Добавлено: 500 строк
+      \end{itemize}
+    \item Рекомендательная система
+      \begin{itemize}
+        \item Добавлено: 2177 строк
+        \item Удалено: 661 строк
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Заключение}
   \begin{itemize}
     \item Проведено сравнение моделей рекомендательных систем
-    \item Рализован микро-сервис рекомендаций
+    \item Реализован микро-сервис рекомендаций
     \item Рекомендации интегрированы на сайт "VLru Еда"
   \end{itemize}
 \end{frame}
