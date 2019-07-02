@@ -1,3 +1,11 @@
+## 1.0.5 (июля 02, 2019)
+  - Add presentation text
+  - Fix realization and testing
+  - Presentation: Add page number
+  - Update presentation
+  - Delete preamble
+  - Update presentation
+  - Add presentation
 ## 1.0.4 (июня 22, 2019)
 
 ## 1.0.3 (июня 18, 2019)
