@@ -1,3 +1,5 @@
+## 1.0.6 (июля 04, 2019)
+  - Last fixes
 ## 1.0.5 (июля 02, 2019)
   - Add presentation text
   - Fix realization and testing
