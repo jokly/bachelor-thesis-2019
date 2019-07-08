@@ -6,6 +6,8 @@ services:
 script:
   - make build_latex_image
   - make build
+  - make presentation
+  - make text
 
 deploy:
   provider: releases
@@ -13,6 +15,8 @@ deploy:
     secure: hUNnRPLJmFnHdLHPcBPpm6m6dCVlgTKJ3VbBqAcX763jcyGmOzmmWXZ5xSak/2dTpYGCAwj82d/hcdgtqrLXvtwbSUqLS6y8mwXd271gCAJY63mC/mZg6eWYXFMdqQsT6bBsj9ONNDLjn+LN0p9yE/ZO3yNIugmkMBAjAMFFpeexq4hHvAEynUZRGFHczNWsA6IRYGXYmxgxTnmtfm1HQSve7tn5afcg+/FRl94nejE1xB3ywl+GcYoGehKdhEQYTyB3BFj0CLkNYbSRluucFIosMcE1ISJrynNs2isvVH4G6OvAzJ+J+DeQhMfsaGqVog3P5F5uXuBbRfuA1lLU6lcP0EeFmcvDjp6soAzgqX2tYg5xN/X8CflVf06b1kXfNifDpqgzVZhtKgXJjREkm65IOfP1m3QlBH8Ad3xpCWYWG2Ztze/n+sNWiSs04ZWUUSmKPaIrWbEuI2cVgRWEuBDvjwXmtc2+Msn7cr3FvDYvFsJaDEB/EpZHdVyksTm59cCAH2x/m91dSMaHRXdIcfWavdmVUz7hXOYaOBmDfeZkZWxcbcHqhzEA3tCCEeiFcRJCXWDqxR0MhW1wjiPy6obEC2q7//bwVG/Nc3stCKugYgZNiJwVXFkf/YLJUBM5iPeiuKCn/VypnO14UfzQnzjTHVSpa/0FhGs418QmQq4=
   file:
     - "bachelor-thesis.pdf"
+    - "presentation.pdf"
+    - "text.pdf"
   name: Build $(date +'%d.%m.%Y')
   skip-cleanup: true
   on:
