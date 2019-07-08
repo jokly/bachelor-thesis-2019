@@ -1,3 +1,6 @@
+## 1.0.7 (июля 08, 2019)
+  - Last updates
+  - Update presentation after review
 ## 1.0.6 (июля 04, 2019)
   - Last fixes
 ## 1.0.5 (июля 02, 2019)
