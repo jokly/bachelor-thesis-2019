@@ -15,21 +15,26 @@
 
 % packages
 \usepackage{caption}
+\usepackage{changepage}
+\usepackage{lipsum}
 
 \setbeamertemplate{footline}[frame number]
 
 % set info
 \title{Рекомендательная система для VLru Еда}
-\author{
-    Студент: \\ Сластен Тихон Дмитриевич \\ \\
-    Руководитель: \\ Старший преподаватель ИМКМ Кленин Александр Сергеевич}
-\institute{Б8403а Прикладная математика и информатика}
+\author[Сластен Т.Д.]{Студент группы Б8403а Сластен Тихон Дмитриевич\\
+Руководитель:\\
+Старший преподаватель\\
+Александр Сергеевич Кленин}
 \date{}
 
 \begin{document}
 
 % Заголовок
-\maketitle
+\begin{frame}
+  \titlepage
+  \thispagestyle{empty}
+\end{frame}
 
 \begin{frame}
   \frametitle{Проект "VLru Еда"}
@@ -37,7 +42,7 @@
     \item Начал свою работу в апреле 2018 года
     \item Более 100 компаний
     \item Около 8000 блюд
-    \item Также, проект существует в Хабаровске под названием "DVHAB Еда"
+    \item ``DVHAB Еда''
   \end{itemize}
 \end{frame}
 
@@ -61,7 +66,7 @@
     \item $I_u$ - множество товаров, которые оценил пользователь $u$
     \item $U_i$ - множество пользователей, которые оценили товар $i$
     \item $SIM(i,j)$ - функция схожести товаров $i$ и $j$
-    \item $r_{ij}$ - оценка пользователя $u$ товару $i$
+    \item $r_{uj}$ - оценка пользователя $u$ товару $i$
   \end{itemize}
 \end{frame}
 
@@ -204,7 +209,7 @@
     \centering
     \begin{tabular} { | c | c | }
       \hline
-      Модель & Score \\
+      Модель & Accuracy \\
       \hline
       Bernoulli Naive Bayes & 0.053 \\
       Random Forest & 0.038 \\
@@ -238,11 +243,13 @@
 
 \begin{frame}
   \frametitle{Пользовательский интерфейс}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.23]{images/tag_page.png}
-    \caption{Страница рекомендаций}
-  \end{figure}
+  \begin{adjustwidth}{-3em}{-1.5em}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.34]{images/tag_page.png}
+      \caption{Страница рекомендаций}
+    \end{figure}
+  \end{adjustwidth}
 \end{frame}
 
 \begin{frame}
@@ -271,6 +278,7 @@
     \item Проведено сравнение моделей рекомендательных систем
     \item Реализован микро-сервис рекомендаций
     \item Рекомендации интегрированы на сайт "VLru Еда"
+    \item Получен акт о внедрении
   \end{itemize}
 \end{frame}
 
